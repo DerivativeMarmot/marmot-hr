@@ -8,32 +8,48 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
-import {Stack} from "@mui/material";
-import {orange, green, deepOrange, lightGreen, lime, teal, cyan, amber, yellow, red} from '@mui/material/colors';
+import { colors, Stack } from "@mui/material";
+import { orange, green, deepOrange, lightGreen, lime, teal, cyan, amber, yellow, red } from '@mui/material/colors';
 import GroupsIcon from '@mui/icons-material/Groups';
 import HomeOverviewInfoCard from "@/components/home-overview-info-card";
-import {pieArcLabelClasses, PieChart} from '@mui/x-charts/PieChart';
-import {BarChart, ChartsItemContentProps, ChartsTooltipSlots, PieSeriesType, PieValueType} from "@mui/x-charts";
+import { pieArcLabelClasses, PieChart } from '@mui/x-charts/PieChart';
+import { BarChart, ChartsItemContentProps, ChartsTooltipSlots, PieSeriesType, PieValueType } from "@mui/x-charts";
 
 const InfoCards = [
     {
         "id": 1,
         "title": "Attendance",
-        "icon": <GroupsIcon/>,
+        "icon": <GroupsIcon />,
         "delta": "+20",
         "compareTo": "yesterday",
         "showMaxValue": true,
         "currentValue": 6400,
         "maxValue": 10000,
-    },{
+    }, {
         "id": 2,
         "title": "Income",
-        "icon": <GroupsIcon/>,
+        "icon": <GroupsIcon />,
         "delta": "+2561",
         "compareTo": "last month",
         "showMaxValue": false,
         "currentValue": 32400,
         "maxValue": 10000,
+    }, {
+        "id": 3,
+        "title": "New Applications",
+        "icon": <GroupsIcon />,
+        "delta": "+25",
+        "compareTo": "yesterday",
+        "showMaxValue": false,
+        "currentValue": 127,
+    }, {
+        "id": 4,
+        "title": "New Leave Requests",
+        "icon": <GroupsIcon />,
+        "delta": "+2",
+        "compareTo": "yesterday",
+        "showMaxValue": false,
+        "currentValue": 209,
     },
 ]
 
@@ -64,14 +80,14 @@ export default function Home() {
     const total = data.reduce((acc, item) => acc + item.value, 0);
     return (
         <Grid container justifyContent="space-between"
-              direction="column"
-              height="100%"
-              spacing={4}
-              flexWrap={"wrap"}
-            >
-            <Grid size={12} flex={1}>
+            direction="column"
+            spacing={4}
+            flexWrap={"wrap"}
+
+        >
+            <Grid size={12} container>
                 <Stack direction="row" justifyContent="flex-start"
-                spacing={4} flexWrap={"wrap"} useFlexGap height={"100%"} maxHeight={100}>
+                    spacing={4} flexWrap={"wrap"} useFlexGap height={"100%"} >
 
                     {InfoCards.map((info) => (
                         <HomeOverviewInfoCard
@@ -88,98 +104,91 @@ export default function Home() {
 
                 </Stack>
             </Grid>
+            <Grid size={12} container>
 
-            <Stack flex={4} direction="row">
-                <Grid size={8} spacing={4} flexWrap={"wrap"}>
-                    <Grid size={12}>
-                        <Stack direction="row" width={"100%"} textAlign="center"
-                               spacing={2} justifyContent="space-around"
-                               flexWrap={"wrap"} useFlexGap>
-                            <Box flex={1}>
-                                <Typography variant={"h5"}>Working Format</Typography>
-                                <PieChart
-                                    series={[
-                                        {
-                                            data,
-                                            arcLabelMinAngle: 65,
-                                            arcLabel: (item) => item.label ?? '',
-                                            valueFormatter: (v, { dataIndex }) =>{
-                                                return `${v.value} | ${((v.value / total) * 100).toFixed(2)}%`;
-                                            },
-                                            highlightScope: { fade: 'series', highlight: 'item' },
-                                            faded: {},
-                                            outerRadius: 80
+                <Grid size={12}>
+                    <Stack direction="row" width={"100%"} textAlign="center"
+                        spacing={0} justifyContent="space-around"
+                        flexWrap={"wrap"} useFlexGap>
+                        <Grid size={{ xs: 12, md: 6 }}>
+                            <Typography>Working Format</Typography>
+                            <PieChart
+                                series={[
+                                    {
+                                        data,
+                                        arcLabelMinAngle: 65,
+                                        arcLabel: (item) => item.label ?? '',
+                                        valueFormatter: (v, { dataIndex }) => {
+                                            return `${v.value} | ${((v.value / total) * 100).toFixed(2)}%`;
                                         },
-                                    ]}
-                                    height={200}
-                                    margin= {{right: 5}}
-                                    slotProps={{
-                                        legend: {
-                                            hidden: true,
-                                        }
-                                    }}
-                                    colors={[
-                                        green[400], amber[400], lightGreen[400], lime[400], teal[400], cyan[400], orange[400], deepOrange[400], yellow[400], red[400]
-                                    ]}
+                                        highlightScope: { fade: 'series', highlight: 'item' },
+                                        faded: {},
+                                        outerRadius: 80
+                                    },
+                                ]}
+                                height={200}
+                                margin={{ right: 5 }}
+                                slotProps={{
+                                    legend: {
+                                        hidden: true,
+                                    }
+                                }}
+                                colors={[
+                                    green[400], amber[400], lightGreen[400], lime[400], teal[400], cyan[400], orange[400], deepOrange[400], yellow[400], red[400]
+                                ]}
 
-                                />
-                            </Box>
-                            <Box flex={1}>
-                                <Typography variant={"h5"}>Source</Typography>
-                                <PieChart
-                                    series={[
-                                        {
-                                            data: sourceOfKnowingData,
-                                            arcLabelMinAngle: 65,
-                                            arcLabel: (item) => item.label ?? '',
-                                            valueFormatter: (v, { dataIndex }) =>{
-                                                return `${v.value} | ${((v.value / total) * 100).toFixed(2)}%`;
-                                            },
-                                            highlightScope: { fade: 'series', highlight: 'item' },
-                                            faded: {},
-                                            outerRadius: 80
+                            />
+                        </Grid>
+                        <Grid size={{ xs: 12, md: 6 }}>
+                            <Typography >Source</Typography>
+                            <PieChart
+                                series={[
+                                    {
+                                        data: sourceOfKnowingData,
+                                        arcLabelMinAngle: 65,
+                                        arcLabel: (item) => item.label ?? '',
+                                        valueFormatter: (v, { dataIndex }) => {
+                                            return `${v.value} | ${((v.value / total) * 100).toFixed(2)}%`;
                                         },
-                                    ]}
-                                    height={200}
-                                    colors={[
-                                        green[400], amber[400], lightGreen[400], lime[400], teal[400], cyan[400], orange[400], deepOrange[400], yellow[400], red[400]
-                                    ]}
-                                    slotProps={{
-                                        legend: {
-                                            itemMarkWidth: 18,
-                                            itemMarkHeight: 6,
-                                            markGap: 5,
-                                            itemGap: 5,
-                                        }
-                                    }}
+                                        highlightScope: { fade: 'series', highlight: 'item' },
+                                        faded: {},
+                                        outerRadius: 80
+                                    },
+                                ]}
+                                height={200}
+                                width={400}
+                                colors={[
+                                    green[400], amber[400], lightGreen[400], lime[400], teal[400], cyan[400], orange[400], deepOrange[400], yellow[400], red[400]
+                                ]}
+                                slotProps={{
+                                    legend: {
+                                        itemMarkWidth: 18,
+                                        itemMarkHeight: 6,
+                                        markGap: 5,
+                                        itemGap: 5,
+                                    }
+                                }}
 
-                                />
-                            </Box>
-                        </Stack>
-                    </Grid>
-
-                    <Grid size={12}>
-                        <BarChart
-                            xAxis={[{ scaleType: 'band', data: ['Jan','Feb','Mar','Apr','May','June','July','Aug','Sept','Oct','Nov','Dec'] }]}
-                            series={[{ data: [4, 3, 5,4, 3, 5,4, 3, 5,4, 3, 5] }]}
-                            height={300}
-                            barLabel="value"
-                        />
-                    </Grid>
-
-                </Grid>
-                <Grid size={4} >
-                    <Stack direction="column" justifyContent="space-around"
-                    height="100%" spacing={4}>
-                        <Box flex={1} >
-                            <Paper sx={{height:'90%'}}>away list</Paper>
-                        </Box>
-                        <Box flex={1}>
-                            <Paper sx={{height:'90%'}}>birthday list</Paper>
-                        </Box>
+                            />
+                        </Grid>
                     </Stack>
                 </Grid>
-            </Stack>
+
+                <Grid size={12}>
+                    <Typography>Attendence</Typography>
+                    <BarChart
+                    title='Attendence'
+                    borderRadius={5}
+                        xAxis={[{ scaleType: 'band', data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'] }]}
+                        series={[{ data: [4, 3, 5, 4, 3, 5, 4, 3, 5, 4, 3, 5] }]}
+                        height={300}
+                        barLabel="value"
+                        colors={[orange[500]]}
+                    />
+                </Grid>
+            </Grid>
+
+
         </Grid>
     );
 }

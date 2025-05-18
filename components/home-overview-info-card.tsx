@@ -5,7 +5,7 @@ import {green} from "@mui/material/colors";
 import GroupsIcon from "@mui/icons-material/Groups";
 import Card from "@mui/material/Card";
 import * as React from "react";
-import {Stack} from "@mui/material";
+import {Box, Stack} from "@mui/material";
 
 interface HomeOverviewInfoCardProps {
     title: string;
@@ -33,35 +33,35 @@ export default function HomeOverviewInfoCard(props: HomeOverviewInfoCardProps) {
     const { title, icon, currentValue, maxValue, showMaxValue, delta, compareTo } = props;
 
     return (
-        <Card sx={{ width: '100%', maxWidth: '250px'}}>
-            <CardContent>
-                <Grid container justifyContent="space-between">
-                    <Grid spacing={8}>
-                        <Typography gutterBottom variant="h5" component="div">
+        <Card >
+            <CardContent >
+                <Grid container justifyContent="space-between" columnGap={1}>
+                    <Box >
+                        <Typography gutterBottom component="span">
                             {title}
                         </Typography>
-                        <Stack direction="row" alignItems="baseline" justifyContent="space-between">
-                            <Typography variant="h4" component="span" color="primary">
+                        <Stack direction="row" alignItems="baseline">
+                            <Typography component="span" color="primary">
                                 <b>{currentValue.toLocaleString()}</b>
                             </Typography>
                             {showMaxValue &&
-                                <Typography component="span" color="primary" marginLeft={0.5}>
-                                    / 10,000
+                                <Typography component="span" color="primary" fontSize={'small'}>
+                                    &nbsp;/{maxValue?.toLocaleString()}
                                 </Typography>
                             }
                         </Stack>
-                        <div>
+                        <Box>
                             <Typography component="span" sx={{color: green[600]}}>
                                 <b>{delta}</b>
                             </Typography>
                             <Typography component="span" color="primary" marginLeft={1}>
                                 vs {compareTo}
                             </Typography>
-                        </div>
-                    </Grid>
-                    <Grid spacing={4}>
+                        </Box>
+                    </Box>
+                    <Box>
                         {icon}
-                    </Grid>
+                    </Box>
                 </Grid>
             </CardContent>
         </Card>
