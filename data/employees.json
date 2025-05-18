@@ -1,0 +1,182 @@
+[
+  {
+    "id": "e001",
+    "name": "Alice Johnson",
+    "jobTitle": "Software Engineer",
+    "status": "Attendance"
+  },
+  {
+    "id": "e002",
+    "name": "Mark Spencer",
+    "jobTitle": "Product Manager",
+    "status": "On Leave"
+  },
+  {
+    "id": "e003",
+    "name": "Linda Chen",
+    "jobTitle": "UX Designer",
+    "status": "Absence"
+  },
+  {
+    "id": "e004",
+    "name": "Tom Becker",
+    "jobTitle": "QA Analyst",
+    "status": "Attendance"
+  },
+  {
+    "id": "e005",
+    "name": "Sarah Kim",
+    "jobTitle": "HR Specialist",
+    "status": "Attendance"
+  },
+  {
+    "id": "e006",
+    "name": "James Liu",
+    "jobTitle": "DevOps Engineer",
+    "status": "On Leave"
+  },
+  {
+    "id": "e007",
+    "name": "Emily Carter",
+    "jobTitle": "Marketing Coordinator",
+    "status": "Absence"
+  },
+  {
+    "id": "e008",
+    "name": "Daniel Lee",
+    "jobTitle": "Customer Support Rep",
+    "status": "Attendance"
+  },
+  {
+    "id": "e009",
+    "name": "Priya Desai",
+    "jobTitle": "Finance Analyst",
+    "status": "On Leave"
+  },
+  {
+    "id": "e010",
+    "name": "Carlos Ramirez",
+    "jobTitle": "IT Technician",
+    "status": "Attendance"
+  },
+  {
+    "id": "e011",
+    "name": "Nina Patel",
+    "jobTitle": "Business Analyst",
+    "status": "Attendance"
+  },
+  {
+    "id": "e012",
+    "name": "Omar Hassan",
+    "jobTitle": "Full Stack Developer",
+    "status": "On Leave"
+  },
+  {
+    "id": "e013",
+    "name": "Grace Wu",
+    "jobTitle": "Graphic Designer",
+    "status": "Absence"
+  },
+  {
+    "id": "e014",
+    "name": "Henry Green",
+    "jobTitle": "Data Scientist",
+    "status": "Attendance"
+  },
+  {
+    "id": "e015",
+    "name": "Isabel Torres",
+    "jobTitle": "Legal Advisor",
+    "status": "On Leave"
+  },
+  {
+    "id": "e016",
+    "name": "Jason White",
+    "jobTitle": "Operations Manager",
+    "status": "Attendance"
+  },
+  {
+    "id": "e017",
+    "name": "Karen Lopez",
+    "jobTitle": "Recruiter",
+    "status": "Absence"
+  },
+  {
+    "id": "e018",
+    "name": "Leo Zhang",
+    "jobTitle": "Systems Engineer",
+    "status": "Attendance"
+  },
+  {
+    "id": "e019",
+    "name": "Maria Gonzales",
+    "jobTitle": "Sales Executive",
+    "status": "On Leave"
+  },
+  {
+    "id": "e020",
+    "name": "Nathan Scott",
+    "jobTitle": "Security Specialist",
+    "status": "Absence"
+  },
+  {
+    "id": "e021",
+    "name": "Olivia Reed",
+    "jobTitle": "Customer Success Manager",
+    "status": "Attendance"
+  },
+  {
+    "id": "e022",
+    "name": "Paul Nguyen",
+    "jobTitle": "Mobile Developer",
+    "status": "On Leave"
+  },
+  {
+    "id": "e023",
+    "name": "Quinn Baker",
+    "jobTitle": "Executive Assistant",
+    "status": "Attendance"
+  },
+  {
+    "id": "e024",
+    "name": "Rachel Adams",
+    "jobTitle": "Training Specialist",
+    "status": "Absence"
+  },
+  {
+    "id": "e025",
+    "name": "Steve Martin",
+    "jobTitle": "Cloud Architect",
+    "status": "Attendance"
+  },
+  {
+    "id": "e026",
+    "name": "Tina Brown",
+    "jobTitle": "Content Strategist",
+    "status": "On Leave"
+  },
+  {
+    "id": "e027",
+    "name": "Uma Kapoor",
+    "jobTitle": "Social Media Manager",
+    "status": "Attendance"
+  },
+  {
+    "id": "e028",
+    "name": "Victor Stone",
+    "jobTitle": "Information Architect",
+    "status": "Absence"
+  },
+  {
+    "id": "e029",
+    "name": "Wendy Chang",
+    "jobTitle": "Analytics Manager",
+    "status": "Attendance"
+  },
+  {
+    "id": "e030",
+    "name": "Xavier Brooks",
+    "jobTitle": "Network Administrator",
+    "status": "On Leave"
+  }
+]
