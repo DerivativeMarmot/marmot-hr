@@ -7,6 +7,8 @@ import { useParams } from 'next/navigation';
 // import EmployeeProfile from './profile/page';
 import {Fade, Tab, Tabs} from "@mui/material";
 import {Box} from "@mui/system";
+import employeeData from '@/data/employees.json';
+import Typography from "@mui/material/Typography";
 
 const EmployeeOverview =
     lazy(() => import('./overview/page'));
@@ -42,6 +44,13 @@ function CustomTabPanel(props: TabPanelProps) {
     );
 }
 
+function getEmployee(id:string){
+    const ee = employeeData.find((employee) => employee.id === id)
+    if (ee) return ee
+    else return {'name': ''}
+
+}
+
 export default function Employee(){
     const { id } = useParams();
 
@@ -59,13 +68,15 @@ export default function Employee(){
     return (
         <div>
             <div>
-                employee {id}
+                <Typography variant="h4" color="textSecondary" marginBottom={"20px"}>
+                    {getEmployee(id).name}
+                </Typography>
             </div>
 
             <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                <Tab label="Item 1" value={0}/>
-                <Tab label="Item 2" value={1}/>
-                <Tab label="Item 3" value={2}/>
+                <Tab label="Overview" value={0}/>
+                <Tab label="Profile" value={1}/>
+                <Tab label="Leave of Absence" value={2}/>
             </Tabs>
 
             {visitedTabs.includes(0) && (
