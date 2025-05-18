@@ -10,6 +10,8 @@ import {DashboardLayout} from "@toolpad/core/DashboardLayout";
 import {Fade} from "@mui/material";
 // import { CssBaseline  } from '@mui/material';
 import theme from '../theme';
+import GroupAddIcon from '@mui/icons-material/GroupAdd';
+import GroupsIcon from '@mui/icons-material/Groups';
 
 
 const NAVIGATION: Navigation = [
@@ -22,21 +24,11 @@ const NAVIGATION: Navigation = [
         title: 'Home',
         icon: <HomeIcon/>,
     },
-    {segment: 'recruitment', title: 'Recruitment', icon: <ShoppingCartIcon/>},
+    {segment: 'recruitment', title: 'Recruitment', icon: <GroupAddIcon />},
     {
         segment: 'employees',
         title: 'Employees',
-        icon: <ShoppingCartIcon/>,
-        children: [
-            {
-                segment: 'overview',
-                title: 'Overview',
-            },
-            {
-                segment: 'profile',
-                title: 'Profile',
-            },
-        ]
+        icon: <GroupsIcon />
     },
     {segment: 'leave-of-absence', title: 'Leave of Absence', icon: <ShoppingCartIcon/>},
     {
@@ -64,7 +56,7 @@ export default function RootLayout({children}: Readonly<{ children: React.ReactN
         <NextAppProvider navigation={NAVIGATION} theme={theme}>
             <DashboardLayout>
                 <Fade in={true}>
-                    <PageContainer>
+                    <PageContainer breadcrumbs={[]}>
                         {children}
                     </PageContainer>
                 </Fade>
