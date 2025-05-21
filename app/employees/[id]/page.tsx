@@ -1,8 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import { useState, Suspense, lazy } from 'react';
-import { useParams } from 'next/navigation';
+import {lazy, Suspense, useState} from 'react';
 // import EmployeeOverview from './overview/page';
 // import EmployeeProfile from './profile/page';
 import {Fade, Tab, Tabs} from "@mui/material";
@@ -22,7 +21,7 @@ interface TabPanelProps {
 }
 
 function CustomTabPanel(props: TabPanelProps) {
-    const { children, value, index, ...other } = props;
+    const {children, value, index, ...other} = props;
 
     return (
         <Fade in={true} timeout={300}>
@@ -33,7 +32,7 @@ function CustomTabPanel(props: TabPanelProps) {
                 aria-labelledby={`simple-tab-${index}`}
                 {...other}
             >
-                {value === index && <Box sx={{ p: 3 }}>
+                {value === index && <Box sx={{p: 3}}>
                     <Suspense fallback={<div>Loading...</div>}>
                         {children}
                     </Suspense>
@@ -44,26 +43,30 @@ function CustomTabPanel(props: TabPanelProps) {
     );
 }
 
-function getEmployee(id:string){
+function getEmployee(id: string) {
     const ee = employeeData.find((employee) => employee.id === id)
     if (ee) return ee
     else return {'name': ''}
 
 }
 
-export default function Employee(){
-    const { id } = useParams();
+export default function Employee({
+                                     params,
+                                 }: {
+    params: { id: string }
+}) {
+    const {id} = params;
 
     const [value, setValue] = React.useState(0);
     const [visitedTabs, setVisitedTabs] = useState([0]);
 
     const handleChange =
         (event: React.SyntheticEvent, newValue: number) => {
-        setValue(newValue);
-        if (!visitedTabs.includes(newValue)) {
-            setVisitedTabs((prev) => [...prev, newValue]);
-        }
-    };
+            setValue(newValue);
+            if (!visitedTabs.includes(newValue)) {
+                setVisitedTabs((prev) => [...prev, newValue]);
+            }
+        };
 
     return (
         <div>

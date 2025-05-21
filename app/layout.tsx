@@ -56,7 +56,7 @@ export default function RootLayout({children}: Readonly<{ children: React.ReactN
         <NextAppProvider navigation={NAVIGATION} theme={theme}>
             <DashboardLayout>
                 <Fade in={true}>
-                    <PageContainer breadcrumbs={[]}>
+                    <PageContainer breadcrumbs={[]} sx={{ marginLeft:"auto", marginRight:"auto" }}>
                         {children}
                     </PageContainer>
                 </Fade>
