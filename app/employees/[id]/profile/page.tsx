@@ -1,9 +1,6 @@
 import * as React from 'react';
-import Paper from "@mui/material/Paper";
-import {ListItem, Stack, List, ListItemButton} from '@mui/material';
-import Typography from "@mui/material/Typography";
-import {Box} from "@mui/system";
-import {Container, Divider} from "@mui/joy";
+import {Stack} from '@mui/material';
+import {Container} from "@mui/joy";
 import ProfileInfoRow from "@/components/profile-info-row";
 import ProfileInfoPaper from "@/components/profile-info-paper";
 

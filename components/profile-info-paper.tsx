@@ -1,8 +1,7 @@
 import React from 'react';
-import {Box, ListItemButton, Typography} from '@mui/material';
+import {Box, Typography} from '@mui/material';
 import Paper from "@mui/material/Paper";
 import ProfileInfoRowProps from "@/components/profile-info-row";
-import Button from '@mui/joy/Button';
 
 interface ProfileInfoPaperProps {
     title: string;

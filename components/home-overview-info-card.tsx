@@ -2,7 +2,6 @@ import CardContent from "@mui/material/CardContent";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import {green} from "@mui/material/colors";
-import GroupsIcon from "@mui/icons-material/Groups";
 import Card from "@mui/material/Card";
 import * as React from "react";
 import {Box, Stack} from "@mui/material";
@@ -30,40 +29,45 @@ interface HomeOverviewInfoCardProps {
 }
 
 export default function HomeOverviewInfoCard(props: HomeOverviewInfoCardProps) {
-    const { title, icon, currentValue, maxValue, showMaxValue, delta, compareTo } = props;
+    const {title, icon, currentValue, maxValue, showMaxValue, delta, compareTo} = props;
 
     return (
-        <Card >
-            <CardContent >
-                <Grid container justifyContent="space-between" columnGap={1}>
-                    <Box >
-                        <Typography gutterBottom component="span">
-                            {title}
-                        </Typography>
-                        <Stack direction="row" alignItems="baseline">
-                            <Typography component="span" color="primary">
-                                <b>{currentValue.toLocaleString()}</b>
-                            </Typography>
-                            {showMaxValue &&
-                                <Typography component="span" color="primary" fontSize={'small'}>
-                                    &nbsp;/{maxValue?.toLocaleString()}
-                                </Typography>
-                            }
-                        </Stack>
+        <Grid size={{xs: 12, md: 6, lg: 3}}>
+            <Card sx={{flexGrow: 1, flex: 1}}>
+                <CardContent>
+                    <Stack justifyContent="space-between" direction={"column"}>
                         <Box>
-                            <Typography component="span" sx={{color: green[600]}}>
-                                <b>{delta}</b>
-                            </Typography>
-                            <Typography component="span" color="primary" marginLeft={1}>
-                                vs {compareTo}
-                            </Typography>
+                            <Stack direction="row" justifyContent="space-between">
+                                <Typography gutterBottom component="span">
+                                    {title}
+                                </Typography>
+                                {icon}
+                            </Stack>
                         </Box>
-                    </Box>
-                    <Box>
-                        {icon}
-                    </Box>
-                </Grid>
-            </CardContent>
-        </Card>
+                        <Box>
+                            <Stack direction="row" alignItems="baseline">
+                                <Typography variant={"h6"} color="primary">
+                                    <b>{currentValue.toLocaleString()}</b>
+                                </Typography>
+                                {showMaxValue &&
+                                    <Typography component="span" color="primary">
+                                        &nbsp;/{maxValue?.toLocaleString()}
+                                    </Typography>
+                                }
+                            </Stack>
+                            <Box>
+                                <Typography component="span" sx={{color: green[600]}}>
+                                    <b>{delta}</b>
+                                </Typography>
+                                <Typography component="span" color="primary" marginLeft={1}>
+                                    vs {compareTo}
+                                </Typography>
+                            </Box>
+                        </Box>
+                    </Stack>
+                </CardContent>
+            </Card>
+        </Grid>
+
     )
 }
