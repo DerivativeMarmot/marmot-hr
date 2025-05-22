@@ -53,9 +53,9 @@ function getEmployee(id: string) {
 export default function Employee({
                                      params,
                                  }: {
-    params: { id: string }
+    params:  Promise<{ id: string }>
 }) {
-    const {id} = params;
+    const {id} = React.use(params);
 
     const [value, setValue] = React.useState(0);
     const [visitedTabs, setVisitedTabs] = useState([0]);
