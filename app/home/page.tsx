@@ -3,7 +3,7 @@ import * as React from 'react';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
-import {Stack} from "@mui/material";
+import {Box, Stack} from "@mui/material";
 import {amber, cyan, deepOrange, green, lightGreen, lime, orange, red, teal, yellow} from '@mui/material/colors';
 import GroupsIcon from '@mui/icons-material/Groups';
 import HomeOverviewInfoCard from "@/components/home-overview-info-card";
@@ -108,9 +108,14 @@ export default function Home() {
                        flexWrap={"wrap"} useFlexGap>
                     <Grid flexGrow={1} size={{xs: 12, md: 6}}>
                         <Paper>
-                            <Typography variant={"h6"} paddingLeft={1} paddingTop={1}>
-                                <WorkIcon/> Working Format
-                            </Typography>
+                            <Stack direction="row" paddingLeft={1} paddingTop={1} columnGap={1}>
+                                <Box sx={{display: 'flex', alignItems: 'center'}}>
+                                    <WorkIcon/>
+                                </Box>
+                                <Typography variant={"h6"}>
+                                    Working Format
+                                </Typography>
+                            </Stack>
                             <PieChart
                                 series={[
                                     {
