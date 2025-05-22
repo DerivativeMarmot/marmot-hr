@@ -1,13 +1,16 @@
 import React from 'react';
-import {Box, Typography} from '@mui/material';
+import {Box, ListItemButton, Typography} from '@mui/material';
 import Paper from "@mui/material/Paper";
+import ProfileInfoRowProps from "@/components/profile-info-row";
+import Button from '@mui/joy/Button';
 
-interface ProfileInfoPaper {
+interface ProfileInfoPaperProps {
     title: string;
-    children: React.ReactNode;// default to true
+    children: React.ReactNode;
 }
 
-export default function ProfileInfoPaper({title, children}: ProfileInfoPaper) {
+export default function ProfileInfoPaper({title, children}: ProfileInfoPaperProps) {
+    const childArray = React.Children.toArray(children) as React.ReactElement<typeof ProfileInfoRowProps>[];
     return (
         <>
             <Paper sx={{padding: "10px"}} aria-label={"container"}>
@@ -17,7 +20,11 @@ export default function ProfileInfoPaper({title, children}: ProfileInfoPaper) {
                     </Typography>
                 </Box>
                 <Box aria-label={"body"}>
-                    {children}
+                    {childArray.map((child, index) => (
+                        React.cloneElement(child, {
+                            isDividerEnabled: index !== childArray.length - 1
+                        })
+                    ))}
                 </Box>
             </Paper>
         </>

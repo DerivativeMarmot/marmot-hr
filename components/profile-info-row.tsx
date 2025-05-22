@@ -1,43 +1,44 @@
 'use client';
 
 import React from 'react';
-import {Box, IconButton, Stack, Typography} from '@mui/material';
-import {Divider} from "@mui/joy";
-import BorderColorIcon from "@mui/icons-material/BorderColor";
+import {Box, ButtonBase, IconButton, List, ListItem, ListItemButton, Stack, Typography} from '@mui/material';
+import {Button, Divider} from "@mui/joy";
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
-interface ProfileInfoRow {
+interface ProfileInfoRowProps {
     label: string;
     children: React.ReactNode;
     onEdit?: () => void;
     isDividerEnabled?: boolean; // default to true
 }
 
-export default function ProfileInfoRow({label, children, onEdit, isDividerEnabled = true}: ProfileInfoRow) {
+export default function ProfileInfoRow({label, children, onEdit, isDividerEnabled = true}: ProfileInfoRowProps) {
     return (
         <>
-            <Stack direction="row" justifyContent="space-between" margin={1}>
-                <Box flex={2} display="flex" alignItems="center">
-                    <Typography color="textSecondary" fontSize={14}>
-                        {label}
-                    </Typography>
-                </Box>
+            <ListItemButton sx={{padding: 0}}>
+                <Stack direction="row" justifyContent="space-between" padding={2} width={"100%"}>
+                    <Box flex={2} display="flex" alignItems="center">
+                        <Typography color="textSecondary" fontSize={14}>
+                            {label}
+                        </Typography>
+                    </Box>
 
-                <Box flex={4} display="flex" alignItems="center">
-                    {typeof children === 'string' ? (
-                        <Typography color="textSecondary" component={"div"}>{children}</Typography>
-                    ) : (
-                        children
-                    )}
-                </Box>
+                    <Box flex={4} display="flex" alignItems="center">
+                        {typeof children === 'string' ? (
+                            <Typography color="textSecondary" component={"div"}>{children}</Typography>
+                        ) : (
+                            children
+                        )}
+                    </Box>
 
-                <Box flex={1} display="flex" justifyContent="flex-end">
-                    {onEdit && (
-                        <IconButton onClick={onEdit} color="primary">
-                            <BorderColorIcon/>
-                        </IconButton>
-                    )}
-                </Box>
-            </Stack>
+                    <Box flex={1} display="flex" justifyContent="flex-end" alignItems="center">
+                        {onEdit && (
+                            <ArrowForwardIosIcon color={"primary"} />
+                        )}
+                    </Box>
+                </Stack>
+            </ListItemButton>
+
             {isDividerEnabled && <Divider/>}
         </>
     );
