@@ -35,7 +35,7 @@ const InfoCards = [
         "maxValue": 10000,
     }, {
         "id": 3,
-        "title": "New Applications",
+        "title": "Applications",
         "icon": <GroupAddIcon/>,
         "delta": "+25",
         "compareTo": "yesterday",
@@ -43,7 +43,7 @@ const InfoCards = [
         "currentValue": 127,
     }, {
         "id": 4,
-        "title": "New Leave Requests",
+        "title": "Leave Requests",
         "icon": <EventIcon/>,
         "delta": "+2",
         "compareTo": "yesterday",
