@@ -120,9 +120,9 @@ export default function Home() {
                                 series={[
                                     {
                                         data,
-                                        arcLabelMinAngle: 65,
-                                        arcLabel: (item) => item.label ?? '',
-                                        valueFormatter: (v, {dataIndex}) => {
+                                        // arcLabelMinAngle: 65,
+                                        // arcLabel: (item) => item.label ?? '',
+                                        valueFormatter: (v) => {
                                             return `${v.value} | ${((v.value / total) * 100).toFixed(2)}%`;
                                         },
                                         highlightScope: {fade: 'series', highlight: 'item'},
@@ -131,15 +131,15 @@ export default function Home() {
                                     },
                                 ]}
                                 height={200}
-                                slotProps={{
-                                    legend: {
-                                        // hidden: true,
-                                        itemMarkWidth: 18,
-                                        itemMarkHeight: 6,
-                                        markGap: 5,
-                                        itemGap: 5,
-                                    }
-                                }}
+                                // slotProps={{
+                                //     legend: {
+                                //         // hidden: true,
+                                //         itemMarkWidth: 18,
+                                //         itemMarkHeight: 6,
+                                //         markGap: 5,
+                                //         itemGap: 5,
+                                //     }
+                                // }}
                                 colors={[
                                     green[400], amber[400], lightGreen[400], lime[400], teal[400], cyan[400], orange[400], deepOrange[400], yellow[400], red[400]
                                 ]}
@@ -169,14 +169,14 @@ export default function Home() {
                                 colors={[
                                     green[400], amber[400], lightGreen[400], lime[400], teal[400], cyan[400], orange[400], deepOrange[400], yellow[400], red[400]
                                 ]}
-                                slotProps={{
-                                    legend: {
-                                        itemMarkWidth: 18,
-                                        itemMarkHeight: 6,
-                                        markGap: 5,
-                                        itemGap: 5,
-                                    }
-                                }}
+                                // slotProps={{
+                                //     legend: {
+                                //         itemMarkWidth: 18,
+                                //         itemMarkHeight: 6,
+                                //         markGap: 5,
+                                //         itemGap: 5,
+                                //     }
+                                // }}
                             />
                         </Paper>
                     </Grid>
