@@ -1,4 +1,3 @@
-'use client';
 
 import React from 'react';
 import {Box, ButtonBase, IconButton, List, ListItem, ListItemButton, Stack, Typography} from '@mui/material';
@@ -32,9 +31,7 @@ export default function ProfileInfoRow({label, children, onEdit, isDividerEnable
                     </Box>
 
                     <Box flex={1} display="flex" justifyContent="flex-end" alignItems="center">
-                        {onEdit && (
-                            <ArrowForwardIosIcon color={"primary"} />
-                        )}
+                        <ArrowForwardIosIcon color={"primary"} />
                     </Box>
                 </Stack>
             </ListItemButton>
