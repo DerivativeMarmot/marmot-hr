@@ -1,9 +1,7 @@
-'use client';
-
 import * as React from 'react';
 import {redirect} from "next/navigation";
 
-export default function Employee({
+export default function Page({
                                      params,
                                  }: {
     params: Promise<{ id: string }>
