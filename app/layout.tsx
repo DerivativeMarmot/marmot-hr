@@ -49,23 +49,27 @@ const NAVIGATION: Navigation = [
 export default function RootLayout({children}: Readonly<{ children: React.ReactNode }>) {
 
     return (
-        <Suspense>
             <html lang="en"
                   data-toolpad-color-scheme="light">
             <body>
             <NextAppProvider navigation={NAVIGATION} theme={theme}>
+
                 <DashboardLayout>
-                    <Fade in={true}>
-                        <PageContainer breadcrumbs={[]} sx={{marginLeft: "auto", marginRight: "auto"}}>
-                            {children}
-                        </PageContainer>
-                    </Fade>
+                    {/*<Fade in={true}>*/}
+                    {/*    <PageContainer breadcrumbs={[]} sx={{marginLeft: "auto", marginRight: "auto"}}>*/}
+                    {/*        */}
+                    {/*    </PageContainer>*/}
+                    {/*</Fade>*/}
+
+                    {/*<Suspense>*/}
+                    {/*    */}
+                    {/*</Suspense>*/}
+                    {children}
                 </DashboardLayout>
             </NextAppProvider>
 
             </body>
             </html>
-        </Suspense>
 
     );
 }
