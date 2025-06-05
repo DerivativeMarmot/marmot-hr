@@ -1,4 +1,3 @@
-'use client'
 import * as React from 'react';
 import {NextAppProvider} from '@toolpad/core/nextjs';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -12,7 +11,7 @@ import {Fade} from "@mui/material";
 import theme from '../theme';
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import GroupsIcon from '@mui/icons-material/Groups';
-
+import {Suspense} from "react";
 
 const NAVIGATION: Navigation = [
     {
@@ -50,20 +49,23 @@ const NAVIGATION: Navigation = [
 export default function RootLayout({children}: Readonly<{ children: React.ReactNode }>) {
 
     return (
-        <html lang="en"
-              data-toolpad-color-scheme="light">
-        <body>
-        <NextAppProvider navigation={NAVIGATION} theme={theme}>
-            <DashboardLayout>
-                <Fade in={true}>
-                    <PageContainer breadcrumbs={[]} sx={{marginLeft: "auto", marginRight: "auto"}}>
-                        {children}
-                    </PageContainer>
-                </Fade>
-            </DashboardLayout>
-        </NextAppProvider>
+        <Suspense>
+            <html lang="en"
+                  data-toolpad-color-scheme="light">
+            <body>
+            <NextAppProvider navigation={NAVIGATION} theme={theme}>
+                <DashboardLayout>
+                    <Fade in={true}>
+                        <PageContainer breadcrumbs={[]} sx={{marginLeft: "auto", marginRight: "auto"}}>
+                            {children}
+                        </PageContainer>
+                    </Fade>
+                </DashboardLayout>
+            </NextAppProvider>
 
-        </body>
-        </html>
+            </body>
+            </html>
+        </Suspense>
+
     );
 }

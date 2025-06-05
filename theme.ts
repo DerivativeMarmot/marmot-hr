@@ -1,3 +1,4 @@
+'use client';
 // theme.ts
 import { createTheme } from '@mui/material/styles';
 import { deepOrange } from '@mui/material/colors';

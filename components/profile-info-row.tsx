@@ -1,7 +1,6 @@
-
 import React from 'react';
-import {Box, ButtonBase, IconButton, List, ListItem, ListItemButton, Stack, Typography} from '@mui/material';
-import {Button, Divider} from "@mui/joy";
+import {Box, ListItemButton, Stack, Typography} from '@mui/material';
+import {Divider} from "@mui/joy";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 interface ProfileInfoRowProps {
@@ -31,7 +30,8 @@ export default function ProfileInfoRow({label, children, onEdit, isDividerEnable
                     </Box>
 
                     <Box flex={1} display="flex" justifyContent="flex-end" alignItems="center">
-                        <ArrowForwardIosIcon color={"primary"} />
+                        <ArrowForwardIosIcon color={"primary"}
+                        onClick={onEdit}/>
                     </Box>
                 </Stack>
             </ListItemButton>

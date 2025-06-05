@@ -16,9 +16,9 @@ function getEmployee(id: string) {
 }
 
 const tabConfig = [
-    { label: 'Overview', path: 'overview' },
-    { label: 'Profile', path: 'profile' },
-    { label: 'Leave Of Absence', path: 'leave-of-absence' },
+    {label: 'Overview', path: 'overview'},
+    {label: 'Profile', path: 'profile'},
+    {label: 'Leave Of Absence', path: 'leave-of-absence'},
 ];
 
 const sectionToTabValue = {
@@ -36,10 +36,10 @@ const tabValueToSection = {
 export default function EmployeeSectionLayout({
                                                   children,
                                                   params
-}: {
+                                              }: {
     children: React.ReactNode;
     params: Promise<{ id: string }>
-}){
+}) {
 
     const {id} = React.use(params);
     const pathname = usePathname();
@@ -55,7 +55,7 @@ export default function EmployeeSectionLayout({
             const section = tabValueToSection[newValue as keyof typeof tabValueToSection] ?? 'overview';
             router.push(`/employees/${id}/${section}`);
 
-    };
+        };
 
     return (
         <div>
@@ -67,7 +67,7 @@ export default function EmployeeSectionLayout({
 
             <Tabs value={currentTab} onChange={handleChange} sx={{paddingBottom: '2pc'}}>
                 {tabConfig.map((tab, index) => (
-                    <Tab key={index} label={tab.label} value={index} />
+                    <Tab key={index} label={tab.label} value={index}/>
                 ))}
             </Tabs>
 
