@@ -3,6 +3,7 @@ import {Stack} from '@mui/material';
 import {Container} from "@mui/joy";
 import ProfileInfoRow from "@/components/profile-info-row";
 import ProfileInfoPaper from "@/components/profile-info-paper";
+import Image from 'next/image';
 
 export default function EmployeeProfile() {
     return (
@@ -11,9 +12,13 @@ export default function EmployeeProfile() {
                 <ProfileInfoPaper title={"Basic info"}>
                     <ProfileInfoRow label={"Profile picture"}
                                     onEdit={() => console.log('Edit picture.')}>
-                        <img style={{borderRadius: '200px', width: '42px', height: '42px'}}
-                             src={"https://avatars.githubusercontent.com/u/78244769?s=400&u=1eafd3732738b93e6c9a41acfd77c3f51e8398a6&v=4"}
-                             alt={"123"}/>
+                        <Image
+                            src="https://avatars.githubusercontent.com/u/78244769?s=400&u=1eafd3732738b93e6c9a41acfd77c3f51e8398a6&v=4"
+                            alt="123"
+                            width={42}
+                            height={42}
+                            style={{ borderRadius: '200px', objectFit: 'cover' }}
+                        />
                     </ProfileInfoRow>
 
                     <ProfileInfoRow label={"Name"} onEdit={() => console.log('Edit birthday.')}>
