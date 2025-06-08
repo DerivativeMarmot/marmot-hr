@@ -27,7 +27,8 @@ const NAVIGATION: Navigation = [
     {
         segment: 'employees',
         title: 'Employees',
-        icon: <GroupsIcon/>
+        icon: <GroupsIcon/>,
+        pattern: 'employees{/:id}*'
     },
     {segment: 'leave-of-absence', title: 'Leave of Absence', icon: <ShoppingCartIcon/>},
     {
@@ -56,7 +57,7 @@ export default function RootLayout({children}: Readonly<{ children: React.ReactN
                 <NextAppProvider navigation={NAVIGATION} theme={theme}>
                     <DashboardLayout>
                         <Fade in={true}>
-                            <PageContainer breadcrumbs={[]} sx={{marginLeft: "auto", marginRight: "auto"}}>
+                            <PageContainer title={''} breadcrumbs={[]} sx={{marginLeft: "auto", marginRight: "auto"}}>
                                 {children}
                             </PageContainer>
                         </Fade>
