@@ -8,6 +8,26 @@ export default function EmployeeProfile() {
     return (
         <Container>
             <Stack direction="column" spacing={4}>
+
+                <ProfileInfoPaper title={"Employment info"}>
+                    <ProfileInfoRow label={"Hire Date"}
+                                    onEdit={() => console.log('Edit birthday.')}>
+                        May 21, 2025
+                    </ProfileInfoRow>
+                    <ProfileInfoRow label={"Job Title"}
+                                    onEdit={() => console.log('Edit birthday.')}>
+                        Software Engineer
+                    </ProfileInfoRow>
+                    <ProfileInfoRow label={"Department"}
+                                    onEdit={() => console.log('Edit birthday.')}>
+                        ...
+                    </ProfileInfoRow>
+                    <ProfileInfoRow label={"Work Schedule"}
+                                    onEdit={() => console.log('Edit birthday.')}>
+                        TODO
+                    </ProfileInfoRow>
+                </ProfileInfoPaper>
+
                 <ProfileInfoPaper title={"Basic info"}>
                     <ProfileInfoRow label={"Profile picture"}
                                     onEdit={() => console.log('Edit picture.')}>
@@ -55,25 +75,6 @@ export default function EmployeeProfile() {
                     <ProfileInfoRow label={"Work"}
                                     onEdit={() => console.log('Edit birthday.')}>
                         11111 Ohio Ave, Los Angeles, CA
-                    </ProfileInfoRow>
-                </ProfileInfoPaper>
-
-                <ProfileInfoPaper title={"Employment info"}>
-                    <ProfileInfoRow label={"Hire Date"}
-                                    onEdit={() => console.log('Edit birthday.')}>
-                        May 21, 2025
-                    </ProfileInfoRow>
-                    <ProfileInfoRow label={"Job Title"}
-                                    onEdit={() => console.log('Edit birthday.')}>
-                        Software Engineer
-                    </ProfileInfoRow>
-                    <ProfileInfoRow label={"Department"}
-                                    onEdit={() => console.log('Edit birthday.')}>
-                        ...
-                    </ProfileInfoRow>
-                    <ProfileInfoRow label={"Work Schedule"}
-                                    onEdit={() => console.log('Edit birthday.')}>
-                        TODO
                     </ProfileInfoRow>
                 </ProfileInfoPaper>
             </Stack>
