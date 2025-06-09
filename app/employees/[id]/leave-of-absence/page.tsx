@@ -1,13 +1,8 @@
 import * as React from 'react';
-import Paper from "@mui/material/Paper";
+import EmployeeLeaveOfAbsence from './leave-of-absence'
 
-export default function EmployeeLeaveOfAbsence() {
+export default function Page() {
     return (
-        <>
-            <Paper>
-                <h4>Leave of Absence</h4>
-            </Paper>
-
-        </>
+        <EmployeeLeaveOfAbsence/>
     );
 }

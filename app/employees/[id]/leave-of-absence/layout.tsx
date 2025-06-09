@@ -1,5 +1,5 @@
 import * as React from "react";
-import {Fade} from "@mui/material";
+import {Box, Fade} from "@mui/material";
 import {Suspense} from "react";
 
 export default function Layout({
@@ -9,10 +9,10 @@ export default function Layout({
 }) {
     return (
         <Suspense >
-            <Fade in={true} timeout={500}>
-                <div>
+            <Fade in={true}>
+                <Box>
                     {children}
-                </div>
+                </Box>
             </Fade>
         </Suspense>
 
