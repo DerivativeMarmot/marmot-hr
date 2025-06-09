@@ -1,12 +1,8 @@
 import * as React from 'react';
-import Paper from "@mui/material/Paper";
+import EmployeeOverview from './overview';
 
-export default function EmployeeOverview() {
+export default function Page() {
     return (
-        <>
-            <Paper>
-                <h4>EmployeeOverview</h4>
-            </Paper>
-        </>
-    );
+        <EmployeeOverview/>
+    )
 }

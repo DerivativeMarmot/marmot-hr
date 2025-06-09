@@ -66,6 +66,7 @@ export default function RootLayout({children}: Readonly<{ children: React.ReactN
                                 title={''} breadcrumbs={[]}
                             >
                                 {children}
+                                <Box height={200}></Box>
                             </PageContainer>
                         </Box>
 

@@ -1,6 +1,6 @@
 import * as React from "react";
-import {Fade} from "@mui/material";
 import {Suspense} from "react";
+import {Box, Fade} from "@mui/material";
 
 export default function Layout({
                                    children
@@ -8,11 +8,11 @@ export default function Layout({
     children: React.ReactNode
 }) {
     return (
-        <Suspense >
-            <Fade in={true} timeout={500}>
-                <div>
+        <Suspense>
+            <Fade in={true}>
+                <Box>
                     {children}
-                </div>
+                </Box>
             </Fade>
         </Suspense>
 
