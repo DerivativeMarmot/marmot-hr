@@ -1,20 +1,29 @@
 'use client';
 
-import employeeData from "@/data/employees.json";
+import employeeDataJson from "@/data/employees.json";
 import * as React from "react";
-import {useMemo} from "react";
+import {useEffect, useMemo, useState} from "react";
 import {usePathname, useRouter} from "next/navigation";
 import Typography from "@mui/material/Typography";
 import {Box, Chip, Stack, Tab, Tabs} from "@mui/material";
 import AspectRatio from "@mui/joy/AspectRatio";
 import {CssVarsProvider} from '@mui/joy/styles';
 import Image from "next/image";
+import FloatingEmployeeInfoBar from "@/components/floating-employee-brief-info-bar";
 
+const employeeData = employeeDataJson as Employee[];
 
-function getEmployee(id: string) {
+class Employee {
+    id: string = '';
+    name: string = '';
+    jobTitle: string = '';
+    status: string = '';
+}
+
+function getEmployee(id: string): Employee {
     const ee = employeeData.find((employee) => employee.id === id)
     if (ee) return ee
-    else return {'name': ''}
+    else return new Employee()
 
 }
 
@@ -37,9 +46,9 @@ const tabValueToSection = {
 };
 
 export default function EmployeeDashboardLayout({
-    id,
-    children,
-                                                }:{
+                                                    id,
+                                                    children,
+                                                }: {
     id: string;
     children: React.ReactNode
 }) {
@@ -58,8 +67,27 @@ export default function EmployeeDashboardLayout({
             router.push(`/employees/${id}/${section}`);
         };
 
+    const [showFloating, setShowFloating] = useState(false);
+    useEffect(() => {
+        const el = document.getElementById('rootPageContainer');
+        if (!el) return;
+
+        const onScroll = () => {
+            console.log('scrollend');
+            const threashold = 200;
+            setShowFloating(el.scrollTop > threashold);
+        };
+        el.addEventListener('scroll', onScroll);
+        return () => el.removeEventListener('scroll', onScroll);
+    }, []);
+
     return (
         <Box>
+            <FloatingEmployeeInfoBar
+                name={getEmployee(id).name}
+                title={getEmployee(id).jobTitle}
+                showFloating={showFloating}/>
+
             <Box className="employee-dashboard-header" mb={2}>
 
                 <Stack direction="column" rowGap={0}>
@@ -80,23 +108,24 @@ export default function EmployeeDashboardLayout({
                                 alt="avatar"
                                 width={150}
                                 height={150}
-                                style={{ borderRadius: '50%',position: 'absolute', transform: 'translateY(-50%)',}}
+                                style={{borderRadius: '50%', position: 'absolute', transform: 'translateY(-50%)',}}
                             />
 
                             <Box minWidth={150} minHeight={75}></Box>
 
-                            <Box display="flex" alignItems="start" >
+                            <Box display="flex" alignItems="start">
                                 <Stack display="flex">
                                     <Stack direction="row" spacing={1} mt={1}>
                                         <Typography fontSize={'x-large'}>{getEmployee(id).name}</Typography>
                                         <Box display={'flex'} alignItems={'center'} flex={{sm: 0}}>
-                                            <Chip label={'Active'} color="success" variant="outlined" />
+                                            <Chip label={'Active'} color="success" variant="outlined"/>
                                         </Box>
                                         <Box display={'flex'} alignItems={'center'}>
-                                            <Chip label={'At Work'} color="primary" variant="outlined" />
+                                            <Chip label={'At Work'} color="primary" variant="outlined"/>
                                         </Box>
                                     </Stack>
-                                    <Typography fontSize={'medium'} color={"textSecondary"}>{getEmployee(id).jobTitle}</Typography>
+                                    <Typography fontSize={'medium'}
+                                                color={"textSecondary"}>{getEmployee(id).jobTitle}</Typography>
                                 </Stack>
                             </Box>
 
@@ -109,7 +138,7 @@ export default function EmployeeDashboardLayout({
             <Tabs value={currentTab} onChange={handleChange} sx={{paddingBottom: '2pc'}}>
                 {tabConfig.map((tab, index) => (
                     <Tab key={index} label={tab.label} value={index}
-                         sx={{fontWeight: 'bold', textTransform: 'none', fontSize: 'medium'}} />
+                         sx={{fontWeight: 'bold', textTransform: 'none', fontSize: 'medium'}}/>
                 ))}
             </Tabs>
 
